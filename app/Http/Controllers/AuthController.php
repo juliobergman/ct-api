@@ -47,6 +47,7 @@ class AuthController extends Controller
     public function logout(Request $request)
     {   
         $user = $request->user();
+
         if(!$user){
             return new JsonResponse([
                 'title' => 'Success',
@@ -120,6 +121,10 @@ class AuthController extends Controller
 
     public function resetPassword(Request $request)
     {
+        
+        
+        // http://127.0.0.1:8000/reset-password/29441b8f293b1174da076f19c5da8d2f356d85d262ec94835b01ef47e15fc999?email=juliobergman%40gmail.com
+        
         $request->validate([
             'token' => 'required',
             'email' => 'required|email',
